@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block todos %}
+<div class="container mt-5">
+    <section id="toDo" class="card">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form }}
+            <button class="btn btn-success" type="submit">Add Todo</button>
+        </form>
+    </section>
+</div>
+{% endblock todos %}

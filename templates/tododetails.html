@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block todos %}
+</section>
+<section id="toDo" class="card bg-success" >
+    <ul id="remaining-list">
+        {% if todoItems %}
+        {% for item in todoItems %}
+        <div class="items-div text-center">
+            <li>
+                <span>Title: {{item.title }}</span>
+                <span style="color: brown; font-size: 30px;" class="mt-4 mb-4">{{ item.body }}</span>
+                <span>Created At: {{ item.created_at }}</span>
+            </li>
+        </div>
+        {% endfor %}
+    {% else %}
+        <h3>todo not found </h3>
+    {% endif %} 
+    </ul>
+</section> 
+{% endblock todos %}

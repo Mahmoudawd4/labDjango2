@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block todos %}
+<section id="user-input" class="card">
+    <div class="ctrlBtn text-center">
+        <h1>Todo List App</h1>
+        
+        <a href="{% url 'create' %}"><button id="add-btn">Add Todo</button></a>
+    </div>
+</section>
+    <section id="toDo" class="card">
+        <h3>To-do</h3>
+        <ul id="remaining-list">
+            {% if todos %}
+            {% for todo in todos %}
+       
+                    <div class="items-div bg-info">
+                        <li>
+                    {% if not todo.is_completed %}
+                            <span><a href="{% url 'todos' todo.id %}">{{ todo }}</a></span>
+                            {%else%}
+
+                            <span><a href="{% url 'todos' todo.id %}" style="text-decoration: line-through;">{{ todo }}</a></span>
+                            {% endif %}
+                            <a href="{% url 'update' todo.id %}"><i class="fa-solid fa-pen-to-square green-icon text-primary"></i></a>
+                            <a href="{% url 'delete' todo.id %}"><i class="fa-solid fa-square-xmark red-icon"></i></a>
+                        </li>
+                    </div>
+            {% endfor %}
+        {% else %}
+            <h3>No Todos Available</h3>
+        {% endif %} 
+        </ul>
+    </section>      
+{% endblock todos %}

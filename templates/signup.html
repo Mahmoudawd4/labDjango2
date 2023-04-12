@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block todos %}
+<div class="container mt-5 " >
+    <section id="toDo" class="card">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form }}
+            <br><br>
+            <div class="text-center">
+                <button id="btn btn-primary" type="submit">Sign up</button>
+            </div>
+        </form> 
+    </section> 
+</div> 
+{% endblock todos %}
